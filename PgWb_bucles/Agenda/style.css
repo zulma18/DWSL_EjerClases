@@ -1,0 +1,24 @@
+
+.contenedor {
+    text-align: center;
+    align-items: center;
+    background-color: aqua;
+
+}
+
+.cont {
+
+    background-color: rgb(10, 23, 207);
+
+}
+
+h1 {   
+    background-color: gold;
+}
+
+.btn{
+    background-color: rgb(226, 63, 150);
+    color: rgb(252, 254, 255);
+    height: 2rem;
+    
+}
