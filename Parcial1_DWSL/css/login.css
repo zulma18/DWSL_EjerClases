@@ -1,0 +1,54 @@
+/* Estilo general del login */
+body {
+    background: linear-gradient(135deg, #08caca, hwb(27 1% 6%));
+    font-family: 'Arial', sans-serif;
+}
+
+/* Estilo de la tarjeta de login */
+.login-card {
+    border-radius: 10px;
+    max-width: 400px;
+    width: 100%;
+    background-color: white;
+}
+
+.login-card h2 {
+    font-size: 1.8rem;
+    color: #333;
+}
+
+.login-card img {
+    border-radius: 50%;
+}
+
+/* Estilo del botón de inicio de sesión */
+.btn-primary {
+    background-color: #0295a0;
+    border: none;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #da8e1b;
+}
+
+/* Estilo del input */
+.form-control {
+    border-radius: 25px;
+    padding: 0.75rem 1rem;
+    box-shadow: none;
+    border: 1px solid #ddd;
+    transition: border-color 0.3s ease;
+}
+/*btn el cursor*/
+.form-control:focus {
+    border-color: #ff7300;
+    box-shadow: none;
+}
+
+img {
+    max-width: 250px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
