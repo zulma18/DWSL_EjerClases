@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario con Validación de Campos Vacíos</title>
+    <style>
+        /* Estilos para los controles vacíos y llenos */
+        .vacio {
+            background-color: lightgray;
+        }
+
+        .lleno {
+            background-color: white;
+        }
+    </style>
+    <script>
+        // Función que detecta si los campos están vacíos o llenos
+        function verificarCampo(campo) {
+            if (campo.value.trim() === "") {
+                // Si el campo está vacío, aplica la clase 'vacio'
+                campo.classList.add('vacio');
+                campo.classList.remove('lleno');
+            } else {
+                // Si el campo tiene algún valor, aplica la clase 'lleno'
+                campo.classList.add('lleno');
+                campo.classList.remove('vacio');
+            }
+        }
+
+        // Verificar todos los campos al cargar la página y en cada cambio
+        function verificarFormulario() {
+            const campos = document.querySelectorAll('input, select');
+            campos.forEach(campo => {
+                verificarCampo(campo);
+
+                // Agregar el evento 'input' para cada campo
+                campo.addEventListener('input', function () {
+                    verificarCampo(campo);
+                });
+            });
+        }
+
+        // Ejecutar la función cuando se cargue la página
+        window.onload = verificarFormulario;
+    </script>
+</head>
+<body>
+    <h2>Formulario de Registro</h2>
+    
+    <form id="formulario">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre"><br><br>
+        
+        <label for="dui">DUI:</label>
+        <input type="text" id="dui" name="dui"><br><br>
+        
+        <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+        <input type="date" id="fecha_nacimiento" name="fecha_nacimiento"><br><br>
+        
+        <label for="genero">Género:</label>
+        <select id="genero" name="genero">
+            <option value="">Seleccione...</option>
+            <option value="masculino">Masculino</option>
+            <option value="femenino">Femenino</option>
+        </select><br><br>
+        
+        <label for="departamento">Departamento:</label>
+        <input type="text" id="departamento" name="departamento"><br><br>
+        
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>

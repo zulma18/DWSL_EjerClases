@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario con Selects</title>
+    <script>
+        // Función para manejar la selección de los valores del select
+        function mostrarSeleccion() {
+            const departamento = document.getElementById("departamento").value;
+            const genero = document.getElementById("genero").value;
+            const educacion = document.getElementById("educacion").value;
+            
+            console.log("Departamento seleccionado: " + departamento);
+            console.log("Género seleccionado: " + genero);
+            console.log("Nivel de educación seleccionado: " + educacion);
+        }
+    </script>
+</head>
+<body>
+    <h2>Formulario de Selección</h2>
+    
+    <form>
+        <!-- Select para Departamento -->
+        <label for="departamento">Departamento:</label>
+        <select id="departamento" name="departamento">
+            <option value="san_miguel" selected>San Miguel</option>
+            <option value="la_union">La Unión</option>
+            <option value="morazan">Morazán</option>
+            <option value="usulutan">Usulután</option>
+        </select><br><br>
+
+        <!-- Select para Género -->
+        <label for="genero">Género:</label>
+        <select id="genero" name="genero">
+            <option value="masculino" selected>Masculino</option>
+            <option value="femenino">Femenino</option>
+        </select><br><br>
+
+        <!-- Select para Educación -->
+        <label for="educacion">Nivel de Educación:</label>
+        <select id="educacion" name="educacion">
+            <option value="bachiller" selected>Bachiller</option>
+            <option value="pregrado">Pregrado</option>
+            <option value="postgrado">Postgrado</option>
+            <option value="doctorado">Doctorado</option>
+        </select><br><br>
+
+        <!-- Botón para mostrar la selección -->
+        <button type="button" onclick="mostrarSeleccion()">Mostrar Selección</button>
+    </form>
+</body>
+</html>
