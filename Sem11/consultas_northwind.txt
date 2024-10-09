@@ -1,0 +1,69 @@
+/********************* SEMANA 11 / CLASE 2 **************************/
+
+use northwind;
+
+SELECT * FROM northwind.product;
+
+/*Consulta que cuenta los productos por categorias*/
+/*GRAFICA ejes "x" = categorias "y" = cantidadProducto*/
+select count(productName) as conteo, categoryName as categoria from product
+inner join category on product.categoryId = category.categoryId
+group by product.categoryId;
+
+SELECT * FROM northwind.custcustdemographics;
+SELECT * FROM northwind.customer;
+SELECT * FROM northwind.customerdemographics;
+
+/*G*/
+SELECT * FROM northwind.employee;
+SELECT * FROM northwind.employeeterritory ;
+
+SELECT * FROM northwind.orderdetail ;
+SELECT * FROM northwind.product;
+SELECT * FROM northwind.region;
+
+/*	Agrupar las orderId por el employeeId*/
+SELECT * FROM northwind.salesorder where shipName = "Ship to 65-A";
+SELECT * FROM northwind.employee;
+
+/********************* CLASE 2 **************************/
+/**** EJERCICIO *****/
+/*Consulta que cuenta las ventas (orderId) realizadas por cada empleado (employeeId), agrupando por employeeId*/
+/*GRAFICA ejes "x" = empleados "y" = cantidadVentas*/
+select count(shipName) as conteo, lastname as empleado from salesorder
+inner join employee on salesorder.employeeId = employee.employeeId
+group by salesorder.employeeId; 
+
+select count(shipName) as conteo, 
+CONCAT(firstname, ' ',lastname) as empleado /*uniendo col de la tabla en una sola col*/
+from salesorder
+inner join employee on salesorder.employeeId = employee.employeeId
+group by salesorder.employeeId; 
+
+/*********** CLASE 21 *****************/
+select * from northwind.orderdetail;
+
+select orderId, sum(quantity*unitPrice) as total from orderdetail group by (orderId) order by(orderId) desc limit 0,10;
+
+/*consulta que muestra de forma asc el orderId de los ultimos 10 */
+SELECT * FROM (
+/**subconsulta */
+select orderId, sum(quantity*unitPrice) as total 
+from orderdetail 
+group by (orderId) 
+order by(orderId) 
+desc limit 0,10
+) AS subquery
+ORDER BY orderId ASC;
+
+
+SELECT * FROM (
+/**subconsulta */
+select orderId, sum(quantity*unitPrice) as total 
+from orderdetail 
+group by (orderId) 
+order by(orderId) 
+desc limit 0,10
+) AS subquery
+ORDER BY orderId ASC
+limit 1
